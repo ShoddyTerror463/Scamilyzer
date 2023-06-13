@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Scamalyzer</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* CSS styles omitted for brevity */
+  </style>
+</head>
+<body>
+  <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;The Scamalyzer&lt;/title&gt;
+  &lt;link rel="stylesheet" type="text/css" href="styles.css"&gt;
+  &lt;style&gt;
+    body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      margin: 20px;
+      background: linear-gradient(to bottom, black, white);
+      /* Additional CSS properties for sizing and positioning */
+    }
+    /* CSS styles omitted for brevity */
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 class="text"&gt;The Scamalyzer&lt;/h1&gt;
+
+  &lt;div class="input-container"&gt;
+    &lt;label class="text" for="spam-input"&gt;Enter the email or news article:&lt;/label&gt;
+    &lt;textarea class="text" id="spam-input" rows="6"&gt;&lt;/textarea&gt;
+    &lt;button class="text" onclick="analyzeSpam()"&gt;Analyze&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div id="result-container" class="text"&gt;&lt;/div&gt;
+
+  &lt;div class="news"&gt;
+    &lt;h5&gt;You can access real news from these sites&lt;/h5&gt;
+    &lt;a href="https://www.bbc.com"&gt;Visit BBC news&lt;/a&gt;
+    &lt;a class="ligma" href="https://www.apple.com"&gt;Visit Apple News&lt;/a&gt;
+    &lt;a href="https://www.itv.com/news"&gt;Visit ITV News&lt;/a&gt;
+    &lt;a href="https://www.npr.org"&gt;Visit NPR News&lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;iframe id="video" width="640" height="360" src="https://www.youtube.com/embed/cSKGa_7XJkg" title="How false news can spread - Noah Tavlin" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen&gt;&lt;/iframe&gt;
+
+  &lt;script&gt;
+  <pre>
+    <code>
+    function analyzeSpam() {
+      var spamInput = document.getElementById("spam-input").value;
+      var words = spamInput.split(" ").length;
+      var spamd = 0;
+  
+      var spamWords = [
+        "guaranteed",
+        "make money fast",
+        "earn cash",
+        "investment",
+        "credit card debt",
+        "loan",
+        "Viagra",
+        "Cialis",
+        "enhancement",
+        "weight loss",
+        "pills",
+        "medication",
+        "free",
+        "discount",
+        "cheap",
+        "offer",
+        "limited time",
+        "exclusive deal",
+        "urgent",
+        "verify your account",
+        "password reset",
+        "click here",
+        "confidential",
+        "inheritance",
+        "lottery winner",
+        "Nigerian prince",
+        "Exclusive",
+        "Shocking",
+        "Bombshell",
+        "Revealed",
+        "Conspiracy",
+        "Hoax",
+        "Cover-up",
+        "Unbelievable",
+        "Proof",
+        "Secret",
+        "Scandal",
+        "Controversial",
+        "Sensational",
+        "Fake",
+        "Exposed",
+        "Fabricated",
+        "Outrageous",
+        "Manipulated",
+        "Unverified",
+        "Clickbait",
+        "Act now",
+        "Double your",
+        "Extra income",
+        "Instant",
+        "Money-back guarantee",
+        "No catch",
+        "Risk-free",
+        "Special promotion",
+        "Success",
+        "Unlimited",
+        "Winning",
+        "You have been selected",
+        "Cash prize",
+        "Congratulations",
+        "Exclusive offer",
+        "Free trial",
+        "Guaranteed satisfaction",
+        "Increase sales",
+        "Incredible",
+        "Massive",
+        "Once in a lifetime",
+        "Proven",
+        "Save big",
+        "Secret revealed",
+        "Take control",
+        "Valuable",
+        "Win",
+        "Hoax",
+  "Misleading",
+  "Deception",
+  "Fabrication",
+  "Manipulation",
+  "Unverified",
+  "Clickbait",
+  "Conspiracy",
+  "Act now",
+  "Double your",
+  "Extra income",
+  "Instant",
+  "Money-back guarantee",
+  "No catch",
+  "Risk-free",
+  "Special promotion",
+  "Success",
+  "Unlimited",
+  "Winning",
+  "You have been selected",
+  "Cash prize",
+  "Congratulations",
+  "Exclusive offer",
+  "Free trial",
+  "Guaranteed satisfaction",
+  "Increase sales",
+  "Incredible",
+  "Massive",
+  "Once in a lifetime",
+  "Proven",
+  "Save big",
+  "Secret revealed",
+  "Take control",
+  "Valuable",
+  "Win",
+  "Limited stock",
+  "No obligation",
+  "Outstanding",
+  "Refinance",
+  "Reverses aging",
+  "Risk-free",
+  "Urgent response",
+  "As seen on",
+  "Extra cash",
+  "Fast cash",
+  "Hidden charges",
+  "Home-based",
+  "Huge earnings",
+  "Make money",
+  "No credit check",
+  "No fees",
+  "No hidden",
+  "No strings attached",
+  "Not a scam",
+  "Not spam",
+  "One time",
+  "Opportunity",
+  "Price",
+  "Prize",
+  "Profit",
+  "Promise",
+  "Pure profit",
+  "Save",
+  "Special",
+  "Time-limited",
+  "Trial",
+  "Undisclosed",
+  "Unlimited time",
+  "Unsubscribe",
+  "Vacation",
+  "Bargain",
+  "Big",
+  "Cash",
+  "Cheap",
+  "Discount",
+  "Dramatic",
+  "Earn",
+  "Extra",
+  "Fantastic",
+  "Fast",
+  "Free",
+  "Gift",
+  "Great",
+  "Instant",
+  "Limited",
+  "Lowest",
+  "Money",
+  "More",
+  "New",
+  "Only",
+  "Opportunity",
+  "Potential",
+  "Prize",
+  "Profits",
+  "Promise",
+  "Quick",
+  "Refund",
+  "Results",
+  "Rich",
+  "Risk",
+  "Satisfaction",
+  "Save",
+  "Secret",
+  "Sensational",
+  "Special",
+  "Surprise",
+  "Time",
+  "Urgent",
+  "Value",
+  "Warranty",
+  "Wealth",
+  "Win",
+  "Winner",
+  "Won",
+  "Amazing",
+  "Cashback",
+  "Claim",
+  "Click",
+  "Compete",
+  "Deal",
+  "Discounted",
+  "Double",
+  "Fast",
+  "Guaranteed",
+  "Hot",
+  "Instantly",
+  "Invest",
+  "Join",
+  "Last",
+  "Luxury",
+  "Million",
+  "Miracle",
+  "Money",
+  "Nigerian",
+  "Online",
+  "Order",
+  "Performance",
+  "Premium",
+  "Profits",
+  "Promotion",
+  "Pure",
+  "Purchase",
+  "Rebate",
+  "Reduced",
+  "Sale",
+  "Save",
+  "Special",
+  "Supplies",
+  "Unbelievable",
+  "Undeniable",
+  "Unique",
+  "Unlimited",
+      ];
+  
+      var websites = [
+        "70 News",
+        "ABCnews.com.co (defunct)",
+        "American News",
+        "banned.video",
+        "Before It's News",
+        "bients.com",
+        "Bipartisan Report",
+        "bizstandardnews.com (defunct)",
+        "Bloomberg.ma (defunct)",
+        "The Boston Tribune",
+        "Breaking-CNN.com",
+        "Buffalo Chronicle",
+        "BVA News",
+        "Cairns News (Australia)",
+        "CBSnews.com.co",
+        "Celebtricity",
+        "cnn-trending.com",
+        "Conservative 101",
+        "Conservative Frontline",
+        "CountyNewsroom.info",
+        "Daily USA Update",
+        "Disclose.tv",
+        "DrudgeReport.com.co",
+        "Empire Herald",
+        "Empire News",
+        "Empire Sports",
+        "Fox-news24.com",
+        "The Gateway Pundit",
+        "Global Associated News",
+        "Globalresearch.ca",
+        "Gossip Mill Mzansi",
+        "Guerilla News",
+        "Gummy Post",
+        "Houston Chronicle TV",
+        "Huzlers",
+        "InfoWars",
+        "Judicial Watch",
+        "KMT 11 News",
+        "The Last Line of Defense",
+        "Law Enforcement Today",
+        "Liberal Society",
+        "Liberty Writers News",
+        "LinkBeef",
+        "MV-media (formerly MV-lehti)",
+        "Naha Daily",
+        "National Insider Politics",
+        "NationalReport.net",
+        "Natural News",
+        "NBCNews.com.co (Defunct)",
+        "The New York Evening (TheNewYorkEvening.com)",
+        "News Breaks Here",
+        "News Examiner",
+        "News Hound",
+        "The News Nerd",
+        "NewsBuzzDaily (defunct)",
+        "NewsPunch (formerly known as YourNewsWire)",
+        "NewsWatch33",
+        "Next News Network",
+        "Now 8 News (Now8News.com)",
+        "Oneworld.press",
+        "OpIndia",
+        "Palmer Report",
+        "Peace Data",
+        "Postcard News",
+        "The Predicted",
+        "Prntly",
+        "React 365",
+        "Real Raw News",
+        "The Reporterz",
+        "Snoopack",
+        "Spin Zone"
+      ];
+  
+      var harmfulWordsFound = [];
+      var unreliableWebsitesFound = [];
+  
+      for (var i = 0; i < spamWords.length; i++) {
+        if (spamInput.toLowerCase().includes(spamWords[i].toLowerCase())) {
+          harmfulWordsFound.push(spamWords[i]);
+        }
+      }
+  
+      for (var j = 0; j < websites.length; j++) {
+        if (spamInput.toLowerCase().includes(websites[j].toLowerCase())) {
+          unreliableWebsitesFound.push(websites[j]);
+        }
+      }
+  
+      var resultContainer = document.getElementById("result-container");
+      resultContainer.innerHTML = "";
+  
+      if (harmfulWordsFound.length > 0 || unreliableWebsitesFound.length > 0) {
+        var resultText = "The email or article contains the following issues:<br><br>";
+  
+        if (harmfulWordsFound.length > 0) {
+          resultText += "Harmful words found: " + harmfulWordsFound.join(", ") + "<br>";
+        }
+  
+        if (unreliableWebsitesFound.length > 0) {
+          resultText += "Unreliable websites found: " + unreliableWebsitesFound.join(", ") + "<br>";
+        }
+  
+        var wordPer = (harmfulWordsFound.length / 10) * 100;
+        resultText += "<br>The percentage of scamminess is: " + wordPer + "%";
+  
+        resultContainer.innerHTML = resultText;
+      } else {
+        resultContainer.innerHTML = "No harmful words or unreliable websites found.";
+      }
+    }
+  </pre>
+</code>
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>
