@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Scamalyzer</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, black, white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    textarea {
+      width: 100%;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+
+    #result-container {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .text {
+      color: rgb(147, 147, 223);
+    }
+
+    .news {
+      display: flex;
+      flex-direction: column;
+      background-color: blanchedalmond;
+      
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
+  
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px #ccc;
+      margin: 20px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    .tips{
+      color: rgb(216, 216, 216);
+      background-color: rgb(116, 133, 127);
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px #ccc;
+      margin: 20px;
+      padding: 20px;
+      width: 300px;
+      float: right;
+    }
+    
+    .vc{
+      display: flex;
+      flex: 1;
+      padding: 2px;
+      flex: row;
+      background-color: black;
+      box-shadow: 5px 5px 10px #e81212;
+    }
+
+  .video{
+    width: 230px;; 
+    height:180;
+  }
+
+  </style>
+</head>
+<body>
+  <h1 class="text">The Scamalyzer</h1>
+
+  <div class="input-container">
+    <label class="text" for="spam-input">Enter the email or news article:</label>
+    <textarea class="text" id="spam-input" rows="6"></textarea>
+    <button class="text" onclick="analyzeSpam()">Analyze</button>
+  </div>
+
+<div id="result-container" class="text"></div>
+
+  <div class = tips ><p>"A Lie Can Travel Twice Around The World, While The Truth Is Still Putting Its Shoes On"
+    -Mark Twain
+  </div>
+  <div class = tips>The Funny Thing Is There Is Reason To Suspect That He Never Said That Proving Is Point Especially In This Modern Era</div>
+
+  
+
+  <div class="news">
+    <h5>You can access real news from these sites</h5>
+    <ul>
+      <li><a href="https://www.bbc.com">BBC</a></li>
+      <li><a href="https://www.cnn.com">CNN</a></li>
+      <li><a href="https://www.reuters.com">Reuters</a></li>
+      <li><a href="https://www.nytimes.com">The New York Times</a></li>
+      <li><a href="https://www.theguardian.com">The Guardian</a></li>
+      <li><a href="https://www.aljazeera.com">Al Jazeera</a></li>
+      <li><a href="https://www.apnews.com">Associated Press</a></li>
+      <li><a href="https://www.npr.org">NPR</a></li>
+      <li><a href="https://www.washingtonpost.com">The Washington Post</a></li>
+      <li><a href="https://www.bloomberg.com">Bloomberg</a></li>
+      <li><a href="https://www.bbc.co.uk/news">BBC News (UK)</a></li>
+      <li><a href="https://www.thetimes.co.uk">The Times (UK)</a></li>
+      <li><a href="https://www.telegraph.co.uk">The Telegraph (UK)</a></li>
+      <li><a href="https://www.theguardian.com/uk">The Guardian (UK)</a></li>
+      <li><a href="https://www.dailymail.co.uk">Daily Mail (UK)</a></li>
+      <li><a href="https://www.spiegel.de/international">Der Spiegel (Germany)</a></li>
+      <li><a href="https://www.lemonde.fr">Le Monde (France)</a></li>
+      <li><a href="https://www.corriere.it">Corriere della Sera (Italy)</a></li>
+      <li><a href="https://www.abc.net.au/news">ABC News (Australia)</a></li>
+      <li><a href="https://www.ndtv.com">NDTV (India)</a></li>
+      <li><a href="https://www.globo.com">Globo (Brazil)</a></li>
+      <li><a href="https://www.chinadaily.com.cn">China Daily (China)</a></li>
+      <li><a href="https://www.japantimes.co.jp">The Japan Times (Japan)</a></li>
+      <li><a href="https://www.rt.com">RT (Russia)</a></li>
+      <li><a href="https://www.aa.com.tr">Anadolu Agency (Turkey)</a></li>
+      <li><a href="https://www.afr.com">The Australian Financial Review (Australia)</a></li>
+      <li><a href="https://www.thestar.com">Toronto Star (Canada)</a></li>
+      <li><a href="https://www.repubblica.it">La Repubblica (Italy)</a></li>
+      <li><a href="https://www.scmp.com">South China Morning Post (Hong Kong)</a></li>
+    </ul>
+    
+  </div>
+
+<h1 class = text>You Can Also Learn From here</h1>
+
+<div class = vc>
+  <iframe class="video"  src="https://www.youtube.com/embed/cSKGa_7XJkg" title="How false news can spread - Noah Tavlin" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe class = video  src="https://www.youtube.com/embed/aJwnHV3X6dk" title="How to identify Fake News? | What is Fake News? | Fact Check" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe class = video  src="https://www.youtube.com/embed/hz6GULbowAk" title="Why people fall for misinformation - Joseph Isaac" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <p><iframe class = video  src="https://www.youtube.com/embed/g2AdkNH-kWA" title="5 Ways To Spot Fake News" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+  <p><iframe class = video src="https://www.youtube.com/embed/HNWgtfDfh5Q" title="Spotting Fake News in Facebook, and What to Do About It" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+</div>
+  <script>
+    function analyzeSpam() {
+      var spamInput = document.getElementById("spam-input").value;
+      var words = spamInput.split(" ").length;
+      var spamd = 0;
+  
+      var spamWords = [
+  '.com.co',
+  "guaranteed",
+  "make money fast",
+  "earn cash",
+  "investment",
+  "credit card debt",
+  "loan",
+  "Viagra",
+  "Cialis",
+  "enhancement",
+  "weight loss",
+  "pills",
+  "medication",
+  "free",
+  'debunked',
+  'Kim Kardaishian',
+  "cheap",
+  "offer",
+  "limited time",
+  "exclusive deal",
+  "urgent",
+  "verify your account",
+  "password reset",
+  "click here",
+  "confidential",
+  "inheritance",
+  "lottery winner",
+  "Nigerian prince",
+  "Exclusive",
+  "Shocking",
+  "Bombshell",
+  "Revealed",
+  "Conspiracy",
+  "Hoax",
+  "Cover-up",
+  "Unbelievable",
+  "Proof",
+  "Secret",
+  "Scandal",
+  "Controversial",
+  "Sensational",
+  "Fake",
+  "Exposed",
+  "Fabricated",
+  "Outrageous",
+  "Manipulated",
+  "Unverified",
+  "Clickbait",
+  "Act now",
+  "Double your",
+  "Extra income",
+  "Instant",
+  "Money-back guarantee",
+  "No catch",
+  "Risk-free",
+  "Special promotion",
+  "Success",
+  "Unlimited",
+  "Winning",
+  "You have been selected",
+  "Cash prize",
+  "Congratulations",
+  "Exclusive offer",
+  "Free trial",
+  "Guaranteed satisfaction",
+  "Increase sales",
+  "Incredible",
+  "Massive",
+  "Once in a lifetime",
+  "Proven",
+  "Save big",
+  "Secret revealed",
+  "Take control",
+  "Valuable",
+  "Win",
+  "Hoax",
+  "Misleading",
+  "Deception",
+  "Fabrication",
+  "Manipulation",
+  "Unverified",
+  "Clickbait",
+  "Conspiracy",
+  "Act now",
+  "Double your",
+  "Extra income",
+  "Instant",
+  "Money-back guarantee",
+  "No catch",
+  "Risk-free",
+  "Special promotion",
+  "Success",
+  "Unlimited",
+  "Winning",
+  "You have been selected",
+  "Cash prize",
+  "Congratulations",
+  "Exclusive offer",
+  "Free trial",
+  "Guaranteed satisfaction",
+  "Increase sales",
+  "Incredible",
+  "Massive",
+  "Once in a lifetime",
+  "Proven",
+  "Save big",
+  "Secret revealed",
+  "Take control",
+  "Valuable",
+  "Win",
+  "Limited stock",
+  "No obligation",
+  "Outstanding",
+  "Refinance",
+  "Reverses aging",
+  "Risk-free",
+  "Urgent response",
+  "As seen on",
+  "Extra cash",
+  "Fast cash",
+  "Hidden charges",
+  "Home-based",
+  "Huge earnings",
+  "Make money",
+  "No credit check",
+  "No fees",
+  "No hidden",
+  "No strings attached",
+  "Not a scam",
+  "Not spam",
+  "One time",
+  "Opportunity",
+  "Price",
+  "Prize",
+  "Profit",
+  "Promise",
+  "Pure profit",
+  "Save",
+  "Special",
+  "Time-limited",
+  "Trial",
+  "Undisclosed",
+  "Unlimited time",
+  "Unsubscribe",
+  "Vacation",
+  "Bargain",
+  "Big",
+  "Cash",
+  "Cheap",
+  "Discount",
+  "Dramatic",
+  "Earn",
+  "Extra",
+  "Fantastic",
+  "Fast",
+  "Free",
+  "Gift",
+  "Great",
+  "Instant",
+  "Limited",
+  "Lowest",
+  "Money",
+  "More",
+  "New",
+  "Only",
+  "Opportunity",
+  "Potential",
+  "Prize",
+  "Profits",
+  "Promise",
+  "Quick",
+  "Refund",
+  "Results",
+  "Rich",
+  "Risk",
+  "Satisfaction",
+  "Save",
+  "Secret",
+  "Sensational",
+  "Special",
+  "Surprise",
+  "Time",
+  "Urgent",
+  "Value",
+  "Warranty",
+  "Wealth",
+  "Win",
+  "Winner",
+  "Won",
+  "Amazing",
+  "Cashback",
+  "Claim",
+  "Click",
+  "Compete",
+  "Deal",
+  "Discounted",
+  "Double",
+  "Fast",
+  "Guaranteed",
+  "Hot",
+  "Instantly",
+  "Invest",
+  "Join",
+  "Last",
+  "Luxury",
+  "Million",
+  'Infect',
+  "Miracle",
+  "Money",
+  "Nigerian",
+  "Online",
+  "Order",
+  "Performance",
+  "Premium",
+  "Profits",
+  "Promotion",
+  "Pure",
+  "Purchase",
+  "Rebate",
+  "Reduced",
+  "Sale",
+  "Save",
+  "Special",
+  "Supplies",
+  "Unbelievable",
+  "Undeniable",
+  "Unique",
+  "Unlimited",
+  ];
+
+  var websites = [
+  "70 News",
+  "ABCnews.com.co (defunct)",
+  "American News",
+  "banned.video",
+  "Before It's News",
+  "bients.com",
+  "Bipartisan Report",
+  "bizstandardnews.com (defunct)",
+  "Bloomberg.ma (defunct)",
+  "The Boston Tribune",
+  "Breaking-CNN.com",
+  "Buffalo Chronicle",
+  "BVA News",
+  "Cairns News (Australia)",
+  "CBSnews.com.co",
+  "Celebtricity",
+  "cnn-trending.com",
+  "Conservative 101",
+  "Conservative Frontline",
+  "CountyNewsroom.info",
+  "Daily USA Update",
+  "Disclose.tv",
+  "DrudgeReport.com.co",
+  "Empire Herald",
+  "Empire News",
+  "Empire Sports",
+  "Fox-news24.com",
+  "The Gateway Pundit",
+  "Global Associated News",
+  "Globalresearch.ca",
+  "Gossip Mill Mzansi",
+  "Guerilla News",
+  "Gummy Post",
+  "Houston Chronicle TV",
+  "Huzlers",
+  "InfoWars",
+  "Judicial Watch",
+  "KMT 11 News",
+  "The Last Line of Defense",
+  "Law Enforcement Today",
+  "Liberal Society",
+  "Liberty Writers News",
+  "LinkBeef",
+  "MV-media (formerly MV-lehti)",
+  "Naha Daily",
+  "National Insider Politics",
+  "NationalReport.net",
+  "Natural News",
+  "NBCNews.com.co (Defunct)",
+  "The New York Evening (TheNewYorkEvening.com)",
+  "News Breaks Here",
+  "News Examiner",
+  "News Hound",
+  "The News Nerd",
+  "NewsBuzzDaily (defunct)",
+  "NewsPunch (formerly known as YourNewsWire)",
+  "NewsWatch33",
+  "Next News Network",
+  "Now 8 News (Now8News.com)",
+  "Oneworld.press",
+  "OpIndia",
+  "Palmer Report",
+  "Peace Data",
+  "Postcard News",
+  "The Predicted",
+  "Prntly",
+  "React 365",
+  "Real Raw News",
+  "The Reporterz",
+  "Snoopack",
+  "Spin Zone"
+  ];
+
+      var harmfulWordsFound = [];
+      var unreliableWebsitesFound = [];
+  
+      for (var i = 0; i < spamWords.length; i++) {
+        if (spamInput.toLowerCase().includes(spamWords[i].toLowerCase())) {
+          harmfulWordsFound.push(spamWords[i]);
+        }
+      }
+  
+      for (var j = 0; j < websites.length; j++) {
+        if (spamInput.toLowerCase().includes(websites[j].toLowerCase())) {
+          unreliableWebsitesFound.push(websites[j]);
+        }
+      }
+  
+      var resultContainer = document.getElementById("result-container");
+      resultContainer.innerHTML = "";
+  
+      if (harmfulWordsFound.length > 0 || unreliableWebsitesFound.length > 0) {
+        var resultText = "The email or article contains the following issues:<br><br>";
+  
+        if (harmfulWordsFound.length > 0) {
+          resultText += "Harmful words found: " + harmfulWordsFound.join(", ") + "<br>";
+        }
+  
+        if (unreliableWebsitesFound.length > 0) {
+          resultText += "Unreliable websites found: " + unreliableWebsitesFound.join(", ") + "<br>";
+        }
+  
+        var wordPer = (harmfulWordsFound.length / 10) * 100;
+        resultText += "<br>The percentage of scamminess is: " + wordPer + "%";
+  
+        resultContainer.innerHTML = resultText;
+      } else {
+        resultContainer.innerHTML = "No harmful words or unreliable websites found.";
+      }
+      var generatedText = document.createElement('p');
+generatedText.className = 'text';
+document.getElementById('result-container').appendChild(generatedText);
+    }
+  </script>
+  <h1 class = text>How did we do it?</h1>
+  <h4 class="text">Me and my team of friends Me, William, Avi came together and made this website William and Avi told me about the competition and we got to work trying to find a way to find out fake news. We eventually figured out that some key words can help you track and find spam emails and fake news articals aswell as the website they came from so we made a list of words ove 100 words long which if detected will go towards how many fake words there is so we put that number over 10 and multiply by 100 and boom the percentage of scammines it was hard work but in the end we managed to do it, it isn't a app but its all we got ( aswell as vs code ) so that show how we made it, link to code below</h4>
+  <ul class = text>
+    <li>Website made by: Abdul Samee</li>
+    <li>Sponsored by : William</li>
+    <li>Designs by : Avi</li>
+    <li>Special thanks to : Greggs(the resturant)</li>
+  </ul>
+  <a href="code for spam.html">Link to the code</a>
+</body>
+</html>
+
+
